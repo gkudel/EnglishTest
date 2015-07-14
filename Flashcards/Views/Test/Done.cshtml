@@ -1,0 +1,15 @@
+﻿@model EnglishTest.ModelView.Result
+
+@{
+    ViewBag.Title = "Done";
+}
+
+<h2>Done</h2>
+
+<h4>Congratulation, you've just finished test with result </h4>
+<p>@Model.ResultMessage</p>
+@Html.ActionLink("Back to List", "Index")
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

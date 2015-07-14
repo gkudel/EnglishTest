@@ -1,0 +1,4 @@
+Flashcards/bin/*
+Flashcards/obj/*
+Flashcards/App_Data/*.mdf
+Flashcards/App_Data/*.ldf
