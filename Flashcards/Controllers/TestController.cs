@@ -167,7 +167,7 @@ namespace EnglishTest.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Play([Bind(Include="TestId, PolishWord, EnglishhWord")] Step step)
+        public ActionResult Play([Bind(Include="TestId, PolishWord, EnglishWord")] Step step)
         {
             if (step == null)
             {
