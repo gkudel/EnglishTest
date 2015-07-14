@@ -122,6 +122,7 @@ namespace EnglishTest.Controllers
             if (word != null)
             {
                 step.PolishWord = word.Polish;
+                step.EnglishWord = "";
                 return View("Play", step);
             }
             else
@@ -179,7 +180,7 @@ namespace EnglishTest.Controllers
             }
             if (ModelState.IsValid)
             {
-                if (w.English.ToUpper() != step.EnglishhWord.ToUpper())
+                if (w.English.ToUpper() != step.EnglishWord.ToUpper())
                 {
                     this.ModelState.AddModelError("EnglishhWord", "Please try to one more time");
                     return View(step);
@@ -260,6 +261,21 @@ namespace EnglishTest.Controllers
             var query = db.Questions.Where(q => q.TestId == test.Id);
             r.ResultMessage = "Good answers " + query.Where(q => q.Pass).Count() + " of " + query.Count();
             return View(r);
+        }
+
+        public JsonResult Help(string id)
+        {
+            if(!string.IsNullOrEmpty(id))
+            {
+                Word w = db.Words.SingleOrDefault(word => word.Polish.ToUpper() == id.ToUpper());
+                if (w != null)
+                {
+                    var result = new { EnglishhWord = w.English };
+                    return Json(result, JsonRequestBehavior.AllowGet);
+                }
+
+            }
+            return null;
         }
 
         protected override void Dispose(bool disposing)

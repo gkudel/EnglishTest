@@ -14,7 +14,7 @@ namespace EnglishTest.ModelView
         public string PolishWord { get; set; }
         [Display(Name = "English word")]
         [Required]
-        public string EnglishhWord { get; set; }
+        public string EnglishWord { get; set; }
 
     }
 }
